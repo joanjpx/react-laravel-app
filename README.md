@@ -1,1 +1,1 @@
-# react-laravel-app
+# react-laravel-spa
