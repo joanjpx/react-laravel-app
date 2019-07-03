@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Tweet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TweetController extends Controller
 {
@@ -13,7 +14,9 @@ class TweetController extends Controller
      */
     public function index()
     {
-        return response()->json(Tweet::all(),200);
+        return response()->json(
+            DB::select("SELECT t.id,u.username,t.description,t.created_at FROM users AS u JOIN tweets AS t ON u.id=t.user_id")
+        ,200);
     }
 
     /**
