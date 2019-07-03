@@ -43976,6 +43976,39 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/components/API/FetchTweets.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/API/FetchTweets.js ***!
+  \****************************************************/
+/*! exports provided: getTweets, postTweet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTweets", function() { return getTweets; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postTweet", function() { return postTweet; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//Obtener Tweets
+
+function getTweets() {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/tweet');
+}
+function postTweet(_ref) {
+  var title = _ref.title,
+      body = _ref.body;
+  return axios__WEBPACK_IMPORTED_MODULE_0___default()({
+    method: 'post',
+    url: '/api/tweet',
+    data: {
+      title: title,
+      body: body
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/App.js":
 /*!****************************************!*\
   !*** ./resources/js/components/App.js ***!
@@ -43990,9 +44023,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _TweetComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TweetComponent */ "./resources/js/components/TweetComponent.js");
-/* harmony import */ var _TweetFormComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TweetFormComponent */ "./resources/js/components/TweetFormComponent.js");
-/* harmony import */ var _XHR_FetchTweets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./XHR/FetchTweets */ "./resources/js/components/XHR/FetchTweets.js");
+/* harmony import */ var _TweetsComponent_Tweet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TweetsComponent/Tweet */ "./resources/js/components/TweetsComponent/Tweet.js");
+/* harmony import */ var _TweetsComponent_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TweetsComponent/List */ "./resources/js/components/TweetsComponent/List.js");
+/* harmony import */ var _API_FetchTweets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./API/FetchTweets */ "./resources/js/components/API/FetchTweets.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44016,7 +44049,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-Object(_XHR_FetchTweets__WEBPACK_IMPORTED_MODULE_4__["getTweets"])();
 
 var App =
 /*#__PURE__*/
@@ -44032,12 +44064,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TweetFormComponent__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TweetComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        username: "joan.jpx",
-        description: "Hola Mundo desde React.js! "
-      }));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TweetsComponent_List__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -44052,10 +44079,106 @@ if (document.getElementById('root')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/TweetComponent.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/TweetComponent.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/TweetsComponent/List.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/TweetsComponent/List.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return List; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Tweet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Tweet */ "./resources/js/components/TweetsComponent/Tweet.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var List =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(List, _Component);
+
+  function List() {
+    _classCallCheck(this, List);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(List).apply(this, arguments));
+  }
+
+  _createClass(List, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "1",
+        username: "Joan",
+        description: "Holaaaaaa"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "2",
+        username: "Julia",
+        description: "Hola Mundo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "1",
+        username: "Joan",
+        description: "Holaaaaaa"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "2",
+        username: "Julia",
+        description: "Hola Mundo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "1",
+        username: "Joan",
+        description: "Holaaaaaa"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "2",
+        username: "Julia",
+        description: "Hola Mundo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "1",
+        username: "Joan",
+        description: "Holaaaaaa"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tweet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: "2",
+        username: "Julia",
+        description: "Hola Mundo"
+      }));
+    }
+  }]);
+
+  return List;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TweetsComponent/Tweet.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/TweetsComponent/Tweet.js ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44063,6 +44186,9 @@ if (document.getElementById('root')) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 var Tweet = function Tweet(props) {
@@ -44098,77 +44224,6 @@ var Tweet = function Tweet(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Tweet);
-
-/***/ }),
-
-/***/ "./resources/js/components/TweetFormComponent.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/TweetFormComponent.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var TweetForm = function TweetForm(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row justify-content-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-8"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-header"
-  }, "Hola, Joan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "form-control",
-    placeholder: "\xBFQue est\xE1s pensando?"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-footer"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary"
-  }, "Tweet!")))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (TweetForm);
-
-/***/ }),
-
-/***/ "./resources/js/components/XHR/FetchTweets.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/XHR/FetchTweets.js ***!
-  \****************************************************/
-/*! exports provided: getTweets, postTweet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTweets", function() { return getTweets; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postTweet", function() { return postTweet; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//Obtener Tweets
-
-function getTweets() {
-  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/tweet');
-}
-function postTweet(_ref) {
-  var title = _ref.title,
-      body = _ref.body;
-  return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-    method: 'post',
-    url: '/api/tweet',
-    data: {
-      title: title,
-      body: body
-    }
-  });
-}
 
 /***/ }),
 
