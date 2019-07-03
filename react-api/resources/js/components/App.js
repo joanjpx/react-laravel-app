@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Tweet from "./TweetComponent";
 import TweetForm from "./TweetFormComponent";
+import { getTweets } from "./XHR/FetchTweets";
+
+getTweets();
 
 export default class App extends Component {
     render() {

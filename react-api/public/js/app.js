@@ -43992,6 +43992,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _TweetComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TweetComponent */ "./resources/js/components/TweetComponent.js");
 /* harmony import */ var _TweetFormComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TweetFormComponent */ "./resources/js/components/TweetFormComponent.js");
+/* harmony import */ var _XHR_FetchTweets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./XHR/FetchTweets */ "./resources/js/components/XHR/FetchTweets.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44014,6 +44015,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+Object(_XHR_FetchTweets__WEBPACK_IMPORTED_MODULE_4__["getTweets"])();
 
 var App =
 /*#__PURE__*/
@@ -44133,6 +44136,39 @@ var TweetForm = function TweetForm(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TweetForm);
+
+/***/ }),
+
+/***/ "./resources/js/components/XHR/FetchTweets.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/XHR/FetchTweets.js ***!
+  \****************************************************/
+/*! exports provided: getTweets, postTweet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTweets", function() { return getTweets; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postTweet", function() { return postTweet; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//Obtener Tweets
+
+function getTweets() {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/tweet');
+}
+function postTweet(_ref) {
+  var title = _ref.title,
+      body = _ref.body;
+  return axios__WEBPACK_IMPORTED_MODULE_0___default()({
+    method: 'post',
+    url: '/api/tweet',
+    data: {
+      title: title,
+      body: body
+    }
+  });
+}
 
 /***/ }),
 
