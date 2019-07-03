@@ -43927,7 +43927,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  */
 
 
-__webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+__webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 
 /***/ }),
 
@@ -43976,20 +43976,22 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Example.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Example.js ***!
-  \********************************************/
+/***/ "./resources/js/components/App.js":
+/*!****************************************!*\
+  !*** ./resources/js/components/App.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Example; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return App; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _TweetComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TweetComponent */ "./resources/js/components/TweetComponent.js");
+/* harmony import */ var _TweetFormComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TweetFormComponent */ "./resources/js/components/TweetFormComponent.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44011,44 +44013,126 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Example =
+
+
+var App =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Example, _Component);
+  _inherits(App, _Component);
 
-  function Example() {
-    _classCallCheck(this, Example);
+  function App() {
+    _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Example).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
   }
 
-  _createClass(Example, [{
+  _createClass(App, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Example Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "I'm an example component!")))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TweetFormComponent__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TweetComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        username: "joan.jpx",
+        description: "Hola Mundo desde React.js! "
+      }));
     }
   }]);
 
-  return Example;
+  return App;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
-if (document.getElementById('example')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
+if (document.getElementById('root')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('root'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/TweetComponent.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/TweetComponent.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Tweet = function Tweet(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row justify-content-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "media text-muted pt-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "bd-placeholder-img mr-2 rounded",
+    width: "32",
+    height: "32",
+    xmlns: "http://www.w3.org/2000/svg",
+    preserveAspectRatio: "xMidYMid slice",
+    focusable: "false",
+    role: "img",
+    "aria-label": "Placeholder: 32x32"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Placeholder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+    width: "100%",
+    height: "100%",
+    fill: "#007bff"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("text", {
+    x: "50%",
+    y: "50%",
+    fill: "#007bff",
+    dy: ".3em"
+  }, "32x32")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+    className: "d-block text-gray-dark"
+  }, "@", props.username), props.description))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Tweet);
+
+/***/ }),
+
+/***/ "./resources/js/components/TweetFormComponent.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/TweetFormComponent.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var TweetForm = function TweetForm(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row justify-content-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, "Hola, Joan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "form-control",
+    placeholder: "\xBFQue est\xE1s pensando?"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-footer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-primary"
+  }, "Tweet!")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TweetForm);
 
 /***/ }),
 
