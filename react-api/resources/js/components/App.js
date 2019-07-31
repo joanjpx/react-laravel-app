@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Tweet from './TweetsComponent/Tweet';
 import List from './TweetsComponent/List';
 import {getTweets} from './API/FetchTweets';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class App extends Component {
 
@@ -15,6 +16,7 @@ export default class App extends Component {
     }
 }
 
-if (document.getElementById('root')) {
-    ReactDOM.render(<App />, document.getElementById('root'));
-}
+ReactDOM.render(
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>, document.getElementById('root'));
