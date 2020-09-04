@@ -4,21 +4,30 @@ import Tweet from './TweetsComponent/Tweet';
 import List from './TweetsComponent/List';
 import NavBar from './NavBar';
 import {getTweets} from './API/FetchTweets';
+import TweetForm from './TweetFormComponent';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Select from 'react-select';
+import CreatableSelect,{ makeCreatableSelect } from 'react-select/creatable';
 
-export default class App extends Component {
+const options = [
+    { value: 'blues', label: 'Blues' },
+    { value: 'rock', label: 'Rock' },
+    { value: 'jazz', label: 'Jazz' },
+    { value: 'orchestra', label: 'Orchestra' } 
+  ];
 
-    render() {
+const App = () => {
         return (
             <div>
                 <NavBar/>
+                <TweetForm/>
                 <List/>
+                <Select options = {options} onCreateOption />
             </div>
         );
-    }
 }
 
+export default App
+
 ReactDOM.render(
-  <BrowserRouter>
-  <App />
-  </BrowserRouter>, document.getElementById('root'));
+  <App/>, document.getElementById('root'));

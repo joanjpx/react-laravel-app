@@ -2,7 +2,10 @@
 import axios from 'axios';
 
 export function getTweets() {
-  return axios.get('/api/tweet');
+  axios.get('/api/tweet').then( (response) => {
+      return response;
+    }  
+  );
 }
 
 export function postTweet({ title, body }) {
