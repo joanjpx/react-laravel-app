@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import Tweet from './TweetsComponent/Tweet';
 import List from './TweetsComponent/List';
 import NavBar from './NavBar';
-import {getTweets} from './API/FetchTweets';
 import TweetForm from './TweetFormComponent';
+import {getTweets,postTweet} from './API/FetchTweets';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Select from 'react-select';
-import CreatableSelect,{ makeCreatableSelect } from 'react-select/creatable';
+//import Select from 'react-select';
+//import CreatableSelect,{ makeCreatableSelect } from 'react-select/creatable';
+postTweet();
+getTweets();
 
 const options = [
     { value: 'blues', label: 'Blues' },
@@ -22,7 +24,7 @@ const App = () => {
                 <NavBar/>
                 <TweetForm/>
                 <List/>
-                <Select options = {options} onCreateOption />
+                
             </div>
         );
 }

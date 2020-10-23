@@ -8,13 +8,13 @@ export function getTweets() {
   );
 }
 
-export function postTweet({ title, body }) {
-  return axios({
-    method: 'post',
-    url: '/api/tweet',
-    data: {
-      title,
-      body,
-    }
-  })
+export function postTweet() {
+  return axios.post(
+      '/api/tweet',
+      {
+        "user_id":1,
+        "title": "Hola",
+        "body": "Mundo"
+      }
+  )
 }

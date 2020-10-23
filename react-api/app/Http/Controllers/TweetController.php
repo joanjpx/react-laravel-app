@@ -37,6 +37,7 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
+        return $request;
         return response()->json(Tweet::create(
             [
                 "user_id" => $request->user_id,
